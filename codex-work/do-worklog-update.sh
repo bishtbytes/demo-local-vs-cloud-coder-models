@@ -19,8 +19,7 @@ TASK=$(sed -n 's/^task=//p' "$STATE_FILE")
 TIMESTAMP=$(sed -n 's/^timestamp=//p' "$STATE_FILE")
 
 # Clean task summary (remove checkbox if present)
-# CLEAN_TASK=$(echo "$TASK" | sed -E 's/^[[:space:]]*-\s*\[[ xX]\]\s*//')
-CLEAN_TASK=$(echo "$TASK" | sed -E 's/^[[:space:]]*(-[[:space:]]+)*\[[ xX]\][[:space:]]*//; s/^[[:space:]]*-[[:space:]]+//')
+CLEAN_TASK=$(echo "$TASK" | sed -E 's/^[[:space:]]*-\s*\[[ xX]\]\s*//')
 
 DATE_PART=$(echo "$TIMESTAMP" | cut -d' ' -f1)
 TIME_PART=$(echo "$TIMESTAMP" | cut -d' ' -f2 | cut -d':' -f1,2)
